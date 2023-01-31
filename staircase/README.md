@@ -6,17 +6,20 @@ Dado um número inteiro n que representa a altura da escada, o objetivo é impri
 ## Exemplo de entrada e saída
 
 
-    Entrada: 6
-    Saída:
+Entrada: 
+
+6
+
+Saída:
     
-    ```shell
-         #
-        ##
-       ###
-      ####
-     #####
-    ######
-    ```
+```shell
+     #
+    ##
+   ###
+  ####
+ #####
+######
+```
 
 ### Observações
 
