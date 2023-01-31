@@ -20,7 +20,7 @@ architecture shif_rtl of shift is
     signal a_reg, a_next : my_array; 
 begin
 
-    a_next <= d_in & a_reg(DEPHT - 2 downto 0);
+    a_next <= d_in & a_reg(DEPHT - 1 downto 1);
 
     TICK: process(clk, rst)
     begin
