@@ -1,0 +1,28 @@
+vunit sum_n_vu(sum_n(sum_n_rtl))
+{
+  default clock is rising_edge(clk);
+
+  assume rst = '1';
+
+  attribute anyseq : boolean;
+  type list is array (natural range 0 to 5) of std_logic_vector (4 downto 0);
+  
+  constant inputs : list := ("00101", "00001", "00010", "00101", "00100", "00011");
+
+  signal index: natural range 0 to 4 := 0;
+  attribute anyseq of index : signal is true;
+  assume index = 0;
+  assume always (rst = '1') -> next index = 0;
+  assume always (start = '0') -> next stable(index);
+  assume always (ready = '0') -> next stable(index);
+  assume always (start and ready) -> next (index = prev(index) + 1);
+
+  assume always value_in = inputs(index);
+
+  TEST : cover {
+    index = 5;
+    [+];
+    acc_reg = "01111";
+    [*3]
+  };
+}

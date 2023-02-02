@@ -1,0 +1,14 @@
+vunit staircase_vu(staircase(staircase_rtl))
+{
+    default clock is rising_edge(clk);
+
+    assume rst = '1';
+
+    assume always value_in = "00000011";
+
+    TEST : cover {
+      state_reg = test_loop_i and rst = '0';
+      rst = '0' [+];
+      state_reg = idle and rst = '0'
+    };
+}
