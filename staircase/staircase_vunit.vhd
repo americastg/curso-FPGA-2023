@@ -7,12 +7,13 @@ context vunit_lib.vunit_context;
 
 use std.textio.all;
 use work.stream_bfm.all;
+use work.assert_for_vunit.all;
 
-entity staircase_tb is
+entity staircase_vunit_tb is
     generic (runner_cfg : string);
-end entity staircase_tb;
+end entity staircase_vunit_tb;
 
-architecture staircase_tb_arch of staircase_tb is
+architecture staircase_vunit_arch of staircase_vunit_tb is
     constant PERIOD: time := 20 ns;
 
     signal clk : std_logic := '0';
@@ -75,4 +76,4 @@ begin
         test_runner_cleanup(runner);
     end process;
 
-end architecture staircase_tb_arch;
+end architecture staircase_vunit_arch;

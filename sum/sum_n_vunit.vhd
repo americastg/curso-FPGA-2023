@@ -7,12 +7,13 @@ context vunit_lib.vunit_context;
 
 use std.textio.all;
 use work.stream_bfm.all;
+use work.assert_for_vunit.all;
 
-entity sum_n_tb is
+entity sum_n_vunit_tb is
     generic (runner_cfg : string);
-end entity sum_n_tb;
+end entity sum_n_vunit_tb;
 
-architecture tb of sum_n_tb is
+architecture sum_n_vunit_trl of sum_n_vunit_tb is
     constant SIZE : natural := 8;
     
     constant PERIOD: time := 20 ns;
@@ -138,4 +139,4 @@ begin
         test_runner_cleanup(runner);
     end process;
 
-end architecture tb;
+end architecture sum_n_vunit_trl;
